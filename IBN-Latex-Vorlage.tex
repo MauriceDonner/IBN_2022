@@ -1,0 +1,109 @@
+\documentclass[a4paper, fleqn]{article}
+\usepackage{fancyhdr}
+%\usepackage{fancyheadings}
+\usepackage{polyglossia}
+    \setmainlanguage{german}
+\usepackage[active]{srcltx}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{gauss,amsmath}
+\usepackage{bbm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{struktex}
+\usepackage{array}
+\usepackage{extarrows}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{fourier-otf} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{listings}% http://ctan.org/pkg/listings
+\usepackage{anyfontsize}
+\lstset{
+  basicstyle=\ttfamily,
+  mathescape
+}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\aufgabe}[1]{\vspace{10pt} \textbf{}\noindent \large \textbf{Aufgabe #1} \textit{} \vspace{10pt}
+    \noindent \normalsize}
+
+\newenvironment{absolutelynopagebreak}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\setlength{\parindent}{0em}
+
+\topmargin -1.0cm
+\oddsidemargin -0.8cm
+\evensidemargin 0cm
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.8in}
+
+\hypersetup{
+	pdftitle={Übungsblatt 1},
+	pdfauthor={},
+	pdfborder={0 0 0}
+}
+
+\title{Übungsblatt 1}
+\author{}
+
+\lhead{\sf IBN Übungsblatt 1}
+\rhead{\sf Teammitglied 1, Teammitglied 2, Teammitglied 3}
+
+\begin{document}
+
+\pagestyle{fancy}
+
+\begin{table}[h]
+    \begin{flushright}
+        \begin{tabular}{c|c|c|c|c|c|c|c|c}
+             & A1 & A2 & A3 & A4 & A5 & A6 &A7 & $\sum$ \\
+            \hline Punkte & & & & & & & &
+        \end{tabular}
+    \end{flushright}
+\end{table}
+
+    \aufgabe{1}
+        \begin{enumerate}
+            \item [a)] Denkt daran \code{langen code} in separaten Dateien abzugeben
+            \item [b)] 
+        \end{enumerate}
+    
+    Some text
+    
+    \aufgabe{2}
+
+    \aufgabe{3}
+    
+    \aufgabe{4}
+
+    \aufgabe{5}
+    
+    \aufgabe{6}
+        
+    \aufgabe{7}
+    
+\end{document}
