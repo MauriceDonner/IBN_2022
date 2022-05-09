@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  10 MAY 2022 01:47
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  10 MAY 2022 01:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -612,22 +612,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 32.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 68.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 68.
-File: Fork.jpg Graphic file (type bmp)
-<Fork.jpg>
 [1
 
 ]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 71.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 71.
+File: Fork.jpg Graphic file (type bmp)
+<Fork.jpg>
 File: Threads.jpg Graphic file (type bmp)
 <Threads.jpg>
 [2] [3]
 File: Sketch.jpg Graphic file (type bmp)
 <Sketch.jpg>
 
-Overfull \hbox (3105.04933pt too wide) in paragraph at lines 174--175
+Overfull \hbox (3105.04933pt too wide) in paragraph at lines 177--178
  [][] 
  []
 
@@ -676,10 +676,10 @@ LaTeX Info: Redefining \ttfamily on input line 2.
 Here is how much of TeX's memory you used:
  18341 strings out of 477220
  403283 string characters out of 5832721
- 843405 words of memory out of 5000000
+ 842405 words of memory out of 5000000
  37734 multiletter control sequences out of 15000+600000
  406358 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,6n,131p,394b,1478s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.xdv (5 pages, 77580 bytes).
+Output written on main.xdv (5 pages, 77572 bytes).

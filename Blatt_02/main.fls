@@ -587,10 +587,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+OUTPUT main.xdv
 INPUT ./Fork.jpg
 INPUT ./Fork.jpg
 INPUT Fork.jpg
-OUTPUT main.xdv
 INPUT ./Threads.jpg
 INPUT ./Threads.jpg
 INPUT Threads.jpg
