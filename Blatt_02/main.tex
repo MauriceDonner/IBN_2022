@@ -78,9 +78,6 @@ structure that is visualised below
     \includegraphics[width=.5\textwidth]{Fork.jpg}
 \end{figure}
 \section*{Aufgabe 4}
-remap  :r !pbpaste
-
-
 \textbf{a.} The \texttt{bash} command \texttt{bs} gives a snapshot of the currently
 running processes. Options such as -aux lets the user get a full list of all
 processes, even those not associated with a terminal.
@@ -100,6 +97,7 @@ processes, even those not associated with a terminal.
     This state is usually used by child processes, that have finished their
     execution, and are waiting for the parent process to terminate them.
 \end{itemize}
+\newpage
 \section*{Aufgabe 5}
 \textbf{a.} All we need to do to synchronize the threads is to join each
 thread after it finished running:
@@ -107,7 +105,7 @@ thread after it finished running:
     \centering
     \includegraphics[width=.7\textwidth]{Threads.jpg}
 \end{figure}
-Note however, that this completely negates the purpose of creating the threads
+\noindent Note however, that this completely negates the purpose of creating the threads
 in the first place! The standard output will look like this:
 \begin{lstlisting}
 In main: creating thread 0
@@ -132,8 +130,8 @@ thread id, already slows down the program by approximately a factor of 2
 the program still needs, which might be spent creating and terminating threads.
 Creating threads could therefore be a relatively slow process, but only if
 the runtime of the task they perform is in the order of thread creation itself.\\
-The system used for this task is the following:
 \newpage
+The system used for this task is the following:
 \begin{lstlisting}
 OS: Debian GNU/Linux 11 (bullseye) x86_64 
 Host: 42915CG ThinkPad X220 
