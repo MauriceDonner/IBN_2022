@@ -131,7 +131,7 @@ the program still needs, which might be spent creating and terminating threads.
 Creating threads could therefore be a relatively slow process, but only if
 the runtime of the task they perform is in the order of thread creation itself.\\
 \newpage
-The system used for this task is the following:
+\noindent The system used for this task is the following:
 \begin{lstlisting}
 OS: Debian GNU/Linux 11 (bullseye) x86_64 
 Host: 42915CG ThinkPad X220 
@@ -146,6 +146,19 @@ GPU: Intel 2nd Generation Core Processor Family
 Memory: 2780MiB / 7839MiB
 \end{lstlisting}
 \section*{Aufgabe 6}
+\begin{itemize}
+    \item The first level is rather easy, as the global variable \texttt{flag}
+	is set true, and both threads can enter the critical region immediately.
+    \item The second level can be solved by first increasing the right counter
+	three times (three-headed dragon), enter
+	the critical region, and then the left counter another two
+	times (five-headed dragon). Since it is the same counter variable that
+	is changed, both threads can enter the critical region.
+    \item The third level can be solved, by expanding the operation of increasing
+	the variable \texttt{first}. If both threads store its value at the same
+	time into the variable \texttt{temp}, it will never be increased above 1,
+	therefore fulfilling the condition and breaking the program.
+\end{itemize}
 \section*{Aufgabe 7}
 \textbf{a.}
 \begin{itemize}
@@ -170,9 +183,10 @@ Memory: 2780MiB / 7839MiB
        \item \texttt{RET} The thread leaves the routine \texttt{enter\_region}
 	   and enters the critical area.
 \end{itemize}
-Below, the process is quickly sketched:
+Below, the processes are quickly sketched:
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\textwidth]{Sketch.jpg}
 \end{figure}
+Hallo Bobo
 \end{document}
