@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  10 MAY 2022 10:56
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  10 MAY 2022 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -632,6 +632,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--133
 [3]
 File: Sketch.jpg Graphic file (type bmp)
 <Sketch.jpg>
+[4]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -666,7 +667,7 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[4] [5] (./main.aux
+[5] (./main.aux
 LaTeX Info: Redefining \rmfamily on input line 2.
 LaTeX Info: Redefining \sffamily on input line 2.
 LaTeX Info: Redefining \ttfamily on input line 2.
@@ -680,4 +681,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  87i,6n,131p,394b,1101s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.xdv (5 pages, 84368 bytes).
+Output written on main.xdv (5 pages, 84488 bytes).
