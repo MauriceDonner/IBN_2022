@@ -1,0 +1,122 @@
+
+\documentclass{article}
+
+% Deactivate sectsty warning when loading sectsty {{{
+\usepackage[immediate]{silence}
+\WarningFilter[temp]{latex}{Command}
+\usepackage{sectsty}
+    \sectionfont{\normalfont\sffamily\bfseries\color{blue!40!black}}
+    \subsectionfont{\normalfont\sffamily\bfseries\color{blue!30!black}}
+\DeactivateWarningFilters[temp]
+\makeatletter % disable the runtime redefinitions
+\let\SS@makeulinesect\relax
+\let\SS@makeulinepartchap\relax
+\makeatother
+% }}}
+
+\usepackage[margin=4cm]{geometry}
+    \setlength\parindent{0pt}
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+\usepackage{fontspec}
+    \setsansfont{Linux Biolinum O}
+\usepackage{polyglossia}
+    \setmainlanguage{english}
+\usepackage{sectsty}
+    \sectionfont{\normalfont\sffamily\bfseries\color{blue!40!black}}
+    \subsectionfont{\normalfont\sffamily\bfseries\color{blue!30!black}}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+    \lstset{language=Python,
+	basicstyle=\footnotesize\ttfamily,
+	breaklines=true,
+	framextopmargin=50pt,
+	frame=bottomline,
+	backgroundcolor=\color{white!86!black},
+	commentstyle=\color{blue},
+	keywordstyle=\color{red},
+	stringstyle=\color{orange!80!black}}
+\usepackage{tikz}
+
+\title{\textsf{\color{blue!40!black}3. Übung IBN}}
+\author{Maurice Donner \and Ise Glade}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section*{Aufgabe 1}
+\section*{Aufgabe 2}
+\begin{itemize}
+    \item[a)] 
+	\verb=wait()= unblocks a process, if \verb=S= is larger than 0.\\
+	\verb=signal()= increases S by 1\\
+	If those two instructions were to be exchanged, the critical section
+	would be executed not regarding if there is a queue, since
+	the instruction to wait has not been given yet.
+    \item[b)]
+	If \( S \geq 2 \), Two processes would be allowed to be executed
+	at the same time, or, if \( S < 2 \), just one process would
+	be started, never giving another process the signal to start.
+    \item[c)]
+	If \verb=wait()= is missing, the critical section will just be executed
+	without checking if there is a queue.\\
+	If \verb=signal()= is missing, only S processes can be executed, as
+	there is no way to increase S after a process has finished.
+\end{itemize}
+\section*{Aufgabe 3}
+\section*{Aufgabe 4}
+The pseudocode can be found in \texttt{pseudo\_4.cpp}
+\section*{Aufgabe 5}
+\section*{Aufgabe 6}
+\begin{itemize}
+    \item[a)]
+	A Mutex has seperate lock and condition variables. Therefore, condition
+	variables have no history. The condition has to be tested seperately,
+	instead of relying on a signal.
+	Semaphores will remember the Signals given through the Semaphore counter
+	\verb=S=. If a Thread broadcasts a signal, the next time another Thread
+	calls \verb=wait()=, it will start running immediately, regardless
+	of when the signal was given.
+    \item[b)]
+	The Mutex has to hold the lock, in order for processes not to get stuck
+	waiting. This can happen, when a wait function is called first, then a
+	signal runs between the time, where the wait checked for a signal, and
+	the condition. The Thread will not see that a signal has been called,
+	and wait forever.
+\end{itemize}
+
+\section*{Aufgabe 7}
+\begin{itemize}
+    \item 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lcc}
+	\toprule
+	Memory & Long term memory & Working memory \\
+	Task & Stores fundamental concepts & Stores currently needed things \\ \midrule
+	Comparison & Random Access Memory (RAM) & Cache \\
+	Speed & Slow & Fast \\
+	Volatility & Long storage duration & short storage duration \\
+	Unit & Junks / Items & Junks / Items \\
+	Size & \( 10 ^{9} Bytes\) & \( 10 ^{2} Bytes \)
+	\bottomrule
+    \end{tabular}
+\end{table}
+\item Memory can be moved from the working memory into the long term memory by
+    repeating the information several times. This works especially well for
+    memorizing vocabulary. Studying everything on one day is generally less efficient
+    then repeating the vocabulary several times during the week.
+\end{itemize}
+
+\end{document}
+
