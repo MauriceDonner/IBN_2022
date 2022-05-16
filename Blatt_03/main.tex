@@ -116,7 +116,7 @@ to release the semaphore. \\ The implementation from the lecture looked like thi
 wait (semaphore *S) {
     S->count--;
     if (S->count < 0) {
-	add this process to S->list;
+	//add this process to S->list;
 	block(); 
     }
 }
@@ -127,12 +127,13 @@ wait (semaphore *S) {
 signal (semaphore *S) {
     S->count++;
     if (S->count <= 0 ) {
-	get and remove process P from S->list;
+	// get and remove
+	// process P from S->list;
 	wakeup(P);
     }
 }
 \end{lstlisting}
-\end{minipage}
+\end{minipage} \\
 In C\#, these routines are exchanged with \texttt{semaphore.Wait()} and
 \texttt{semaphore.Release()}, respectively.
 Semaphores are defined by \texttt{semaphore = new SemaphoreSlim(a,n)}, where
