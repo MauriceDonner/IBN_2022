@@ -34,7 +34,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{listings}
-    \lstset{language=Python,
+    \lstset{language=C++,
 	basicstyle=\footnotesize\ttfamily,
 	breaklines=true,
 	framextopmargin=50pt,
@@ -83,14 +83,20 @@ twice, then executing the code of Thread B, before executing Thread A again.
 This way, the condition \texttt{i == 5} is fulfilled, and the error
 statement can be executed. Assuming \texttt{Debug\_Assert(false)} is some
 piece of code that shall not be executed, this is unwanted, and will only
-happen if the threads run in a specific order.	\section*{Aufgabe 4}
-The pseudocode can be found in \texttt{pseudo\_4.cpp} \\
+happen if the threads run in a specific order.
 \textbf{b)} The \texttt{ManualResetEventSlim} is an object with a single boolean
 flag and 3 methods: \texttt{Wait()}, \texttt{Set()} and \texttt{Reset()}.
 When a thread calls \texttt{Wait()}, it can only continue, once the reset event
 is signaled. This way one can implement the dependency of one thread to another,
 by only giving the first \texttt{Set()} signal when a certain part of the program
-has been run. \\
+has been run:
+\begin{lstlisting}
+Thread A			| Thread B
+while (true) {			| while (true) {
+    sync.Wait();		| sync.Reset()
+    // Execute Second part	| // Execute Second part
+}				| sync.Set() }
+\end{lstlisting}
 To access the \texttt{Debug\_Assert()} statement, we can use the fact, that thread
 B doesn't have a \texttt{Wait()} condition. After setting the reset event for the
 first time (\texttt{i=2}), the critical region can be entered by thread A,
@@ -98,6 +104,36 @@ and then immediately stopped before the \texttt{if}-condition is reached. Thread
 B can then increment the counter once again, so that the condition \texttt{i\%2==1}
 is fulfilled. If we switch now back to thread A, the \texttt{Debug\_Assert} can be
 executed.
+\textbf{c)} This level can be solved by entering the critical region with thread A,
+then releasing the semaphore again with thread B. This shouldn't happen, because
+while thread A is inside of the critical region, no other process should be allowed
+to release the semaphore again. This is clearly not the case as thread B is allowed
+to release the semaphore. \\ The implementation from the lecture looked like this:
+\begin{minipage}{.49\textwidth}
+\begin{lstlisting}
+wait (semaphore *S) {
+    S->count--;
+    if (S->count < 0) {
+	add this process to S->list;
+	block(); 
+    }
+}
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\begin{lstlisting}
+signal (semaphore *S) {
+    S->count++;
+    if (S->count <= 0 ) {
+	get and remove process P from S->list;
+	wakeup(P);
+    }
+}
+\end{lstlisting}
+\end{minipage}
+
+\section*{Aufgabe 4}
+The pseudocode can be found in \texttt{pseudo\_4.cpp} \\
 \section*{Aufgabe 5}
 \section*{Aufgabe 6}
 \begin{itemize}
