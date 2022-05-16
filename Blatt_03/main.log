@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  16 MAY 2022 16:17
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  16 MAY 2022 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -806,12 +806,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ]
-Overfull \hbox (33.18391pt too wide) in paragraph at lines 100--134
-\TU/lmr/m/n/10 The implementation from the lecture looked like this: $[]$
+Underfull \hbox (badness 10000) in paragraph at lines 81--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--108
+
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Overfull \hbox (5.88077pt too wide) in paragraph at lines 109--143
+[]$ $[]$ \TU/lmr/m/n/10 In
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
@@ -858,10 +878,10 @@ LaTeX Info: Redefining \ttfamily on input line 2.
 Here is how much of TeX's memory you used:
  22926 strings out of 477220
  501529 string characters out of 5832721
- 883218 words of memory out of 5000000
+ 871218 words of memory out of 5000000
  42220 multiletter control sequences out of 15000+600000
  410046 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,12n,131p,394b,1076s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,12n,131p,394b,1074s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.xdv (4 pages, 53516 bytes).
+Output written on main.xdv (4 pages, 67476 bytes).
