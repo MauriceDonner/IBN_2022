@@ -1,4 +1,3 @@
-
 \documentclass{article}
 
 % Deactivate sectsty warning when loading sectsty {{{
@@ -55,6 +54,11 @@
 \newpage
 
 \section*{Aufgabe 1}
+Using spinlocks on a single core unit wouldn't make much sense, as a
+critical section cannot be accesed by two processes at the same time.
+Therefore there are no race conditions. Locking the only available
+processor on a single core (remember we are talking about
+spinlocks) might not be the best idea either.
 \section*{Aufgabe 2}
 \begin{itemize}
     \item[a)] 
@@ -74,8 +78,26 @@
 	there is no way to increase S after a process has finished.
 \end{itemize}
 \section*{Aufgabe 3}
-\section*{Aufgabe 4}
-The pseudocode can be found in \texttt{pseudo\_4.cpp}
+\textbf{a)} The Assertion can be entered by executing the code of Thread A
+twice, then executing the code of Thread B, before executing Thread A again.
+This way, the condition \texttt{i == 5} is fulfilled, and the error
+statement can be executed. Assuming \texttt{Debug\_Assert(false)} is some
+piece of code that shall not be executed, this is unwanted, and will only
+happen if the threads run in a specific order.	\section*{Aufgabe 4}
+The pseudocode can be found in \texttt{pseudo\_4.cpp} \\
+\textbf{b)} The \texttt{ManualResetEventSlim} is an object with a single boolean
+flag and 3 methods: \texttt{Wait()}, \texttt{Set()} and \texttt{Reset()}.
+When a thread calls \texttt{Wait()}, it can only continue, once the reset event
+is signaled. This way one can implement the dependency of one thread to another,
+by only giving the first \texttt{Set()} signal when a certain part of the program
+has been run. \\
+To access the \texttt{Debug\_Assert()} statement, we can use the fact, that thread
+B doesn't have a \texttt{Wait()} condition. After setting the reset event for the
+first time (\texttt{i=2}), the critical region can be entered by thread A,
+and then immediately stopped before the \texttt{if}-condition is reached. Thread
+B can then increment the counter once again, so that the condition \texttt{i\%2==1}
+is fulfilled. If we switch now back to thread A, the \texttt{Debug\_Assert} can be
+executed.
 \section*{Aufgabe 5}
 \section*{Aufgabe 6}
 \begin{itemize}
