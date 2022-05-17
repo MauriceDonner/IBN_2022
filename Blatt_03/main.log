@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  17 MAY 2022 10:16
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  17 MAY 2022 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -938,27 +938,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--111
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 112--147
+Underfull \hbox (badness 10000) in paragraph at lines 112--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--156
+Underfull \hbox (badness 10000) in paragraph at lines 150--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--195
+Underfull \hbox (badness 10000) in paragraph at lines 171--197
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 196--202
+Underfull \hbox (badness 10000) in paragraph at lines 198--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--225
+Underfull \hbox (badness 10000) in paragraph at lines 205--227
 
  []
 
@@ -1014,4 +1014,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  87i,12n,131p,394b,1092s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.xdv (5 pages, 95420 bytes).
+Output written on main.xdv (5 pages, 95632 bytes).
