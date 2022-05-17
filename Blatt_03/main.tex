@@ -42,7 +42,10 @@
 	backgroundcolor=\color{white!86!black},
 	commentstyle=\color{blue},
 	keywordstyle=\color{red},
-	stringstyle=\color{orange!80!black}}
+	stringstyle=\color{orange!80!black},
+	morekeywords={import, var, proc, in}
+    }
+\usepackage{hyperref}
 \usepackage{tikz}
 
 \title{\textsf{\color{blue!40!black}3. Übung IBN}}
@@ -160,8 +163,66 @@ monitor with \texttt{MonitorExit()}, and thread 1 can enter, and try
 to dequeue. This however will raise an exception, since the queue is empty.
 
 \section*{Aufgabe 4}
-The pseudocode can be found in \texttt{pseudo\_4.cpp} \\
+The pseudocode can be found in \texttt{pseudo\_4.cpp}
+
 \section*{Aufgabe 5}
+\textbf{a)} Channels can act like messengers between threads. If we want a thread
+to onlt execute a specific block of code after a condition is fulfilled we could
+read the channel until another thread writes into it: \\
+\begin{minipage}{.39\textwidth}
+    Thread A
+\begin{lstlisting}
+var myChannel: Channel[int]
+open(myChannel)
+
+myChannel.send(1)
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.59\textwidth}
+    Thread B
+\begin{lstlisting}
+while true: 
+   if myChannel.peek == 1:
+	myChannel.recv() // Blocking Call
+	// Execute some code 
+\end{lstlisting}
+\end{minipage} \\
+This however is a spinlock and should generally be avoided since it wastes precious
+CPU cycles. The Nim Manual\footnote{The Nim Manual:
+    \url{https://nim-lang.org/docs/manual.html}} also contains the procs
+\texttt{tryRecv} and \texttt{trySend}, which can be used to send a message to
+a thread directly (source: \url{https://nim-lang.org/docs/channels_builtin.html#Channel})\\
+
+\textbf{b)} The blocking call happens upon calling \texttt{myChannel.recv()} (note that
+the channel can also be read out without blocking by using \texttt{myChannel.peek}).
+To ensure that no two threads can access the channel at the same time, the 
+\texttt{myChannel.send()} proc also blocks the channel, until the number
+of unprocessed items is less than a set value \texttt{maxItems}. For an unlimited
+queue, this value can be set to 0. \\
+
+\begin{minipage}{.39\textwidth}
+    Thread A
+\begin{lstlisting}
+var myChannel: Channel[int]
+open(myChannel)
+myChannel.send()
+if myChannel.tryRecv():
+    // Execute some code
+myChannel.send()
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.59\textwidth}
+    Thread B
+\begin{lstlisting}
+
+
+
+if myChannel.tryRecv():
+    // Execute some code
+myChannel.send()
+\end{lstlisting}
+\end{minipage} \\
+
 \section*{Aufgabe 6}
 \begin{itemize}
     \item[a)]
@@ -181,11 +242,9 @@ The pseudocode can be found in \texttt{pseudo\_4.cpp} \\
 \end{itemize}
 
 \section*{Aufgabe 7}
-\begin{itemize}
-    \item 
 \begin{table}[H]
     \centering
-    \begin{tabular}{lcc}
+    \begin{tabular}{lll}
 	\toprule
 	Memory & Long term memory & Working memory \\
 	Task & Stores fundamental concepts & Stores currently needed things \\ \midrule
@@ -197,11 +256,10 @@ The pseudocode can be found in \texttt{pseudo\_4.cpp} \\
 	\bottomrule
     \end{tabular}
 \end{table}
-\item Memory can be moved from the working memory into the long term memory by
-    repeating the information several times. This works especially well for
-    memorizing vocabulary. Studying everything on one day is generally less efficient
-    then repeating the vocabulary several times during the week.
-\end{itemize}
+Memory can be moved from the working memory into the long term memory by
+repeating the information several times. This works especially well for
+memorizing vocabulary. Studying everything on one day is generally less efficient
+then repeating the vocabulary several times during the week.
 
 \end{document}
 
