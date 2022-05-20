@@ -1,0 +1,136 @@
+
+\documentclass{article}
+
+% Deactivate sectsty warning when loading sectsty {{{
+\usepackage[immediate]{silence}
+\WarningFilter[temp]{latex}{Command}
+\usepackage{sectsty}
+    \sectionfont{\normalfont\sffamily\bfseries\color{blue!40!black}}
+    \subsectionfont{\normalfont\sffamily\bfseries\color{blue!30!black}}
+\DeactivateWarningFilters[temp]
+\makeatletter % disable the runtime redefinitions
+\let\SS@makeulinesect\relax
+\let\SS@makeulinepartchap\relax
+\makeatother
+% }}}
+
+\usepackage[margin=4cm]{geometry}
+    \setlength\parindent{0pt}
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+\usepackage{fontspec}
+    \setsansfont{Linux Biolinum O}
+\usepackage{polyglossia}
+    \setmainlanguage{english}
+\usepackage{sectsty}
+    \sectionfont{\normalfont\sffamily\bfseries\color{blue!40!black}}
+    \subsectionfont{\normalfont\sffamily\bfseries\color{blue!30!black}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+    \lstset{language=C++,
+	basicstyle=\footnotesize\ttfamily,
+	breaklines=true,
+	framextopmargin=50pt,
+	frame=bottomline,
+	backgroundcolor=\color{white!86!black},
+	commentstyle=\color{blue},
+	keywordstyle=\color{red},
+	stringstyle=\color{orange!80!black}}
+\usepackage{tikz}
+
+\title{\textsf{\color{blue!40!black}4. Übung IBN}}
+\author{Maurice Donner \and Ise Glade}
+
+\begin{document}
+
+\maketitle
+
+\section*{Aufgabe 3}
+The \texttt{???} have to be replaced the following way:
+\begin{lstlisting}
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main(){
+
+    int i, shmID, *shared_mem, count=0, total=0,rnd;
+    shmID = shmgetIPC_PRIVATE, sizeof(int), IPC_CREAT | 0644);
+    shared_mem = (int*)shmat(shmID,0,0);
+    *shared_mem = 0;
+    if (fork())
+	for (i=0; i<500; i++){
+	    *shared_mem+=1;
+	    printf("\n Elternprozess: %i", *shared_mem);
+	    sleep(2);
+	}
+    else
+	for (i=0; i<500;i++){
+	    *shared_mem+=1;
+	    printf("\n Kindprozess: %i", *shared_mem);
+	    rnd=rand();
+	    sleep(rnd%3);
+	}
+    shmdt(shared_mem);
+    shmctl(shmID, IPC_RMID, 0);
+    return 0;
+}
+\end{lstlisting}
+
+\begin{itemize}
+    \item \texttt{shmget} creates a segment of shared memory
+    \item If a process wants to use this segment, it has to attach to it with
+	\texttt{shmat}
+    \item Once the process is finished, it detaches from the shared memory with
+	\texttt{shmdt}
+    \item \texttt{shmctl} performs a specified operation on the shared memory segment
+\end{itemize}
+
+The shared counting doesn't seem to be determinstic. This is because of race conditions
+concerning the shared variable \texttt{shared\_mem}
+
+\section*{Aufgabe 8}
+\textbf{a)} 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lcr}
+	\centering
+	Matrikelnummer & $\rightarrow$ & Seitennummer (page number)\\
+	Wohnadresse & $\rightarrow$ & Rahmennummer (frame number)\\
+	Verzeichnis & $\rightarrow$ & Seitentabelle (page table)\\
+    \end{tabular}
+\end{table}
+
+\textbf{b)} The table would contain entries equal to the number of available
+matriulation numbers. With 7 digits from 0 to 9, this would make \( 10 ^{7} \) entries.
+This number could be reduced, if one considers the maximum number of students enroled
+at a single point in time. This way, matriculation numbers could be repurposed
+if a student is exmatriculated for any reason such as submitting a sample solution
+for his exercise sheet.
+
+\section*{Aufgabe 9}
+Assuming the counting of addresses starts at 0: (syntax: pagenumber | offset)\\
+\[ 
+    2456 \ \hat = \ 2 | 408 \quad 16382 \ \hat = \ 15 | 1022 \quad 30000 \ \hat =
+    \ 29 | 304 \quad 4385 \ \hat = \ 4 | 289
+\]
+In C, a calculation could look like this:
+\begin{lstlisting}
+int page_number = value/pagesize // implicit conversion to int
+int offset = value%pagesize
+\end{lstlisting}
+
+
+
+\end{document}
+
