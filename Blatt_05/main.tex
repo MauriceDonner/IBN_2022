@@ -83,6 +83,12 @@ This doesnt come without a trade-off though, as the chance for
 internal fragmentation rises exponentially with the pagesize.
 
 \section*{Aufgabe 4}
+For a pagesize of 4 kB, the offset is 12 bits. This leaves 20 bits
+for the page index. That means there are \( 2 ^{20} = 1\) MB entries
+in the direct page table. To address 512 MB physical memory, we need
+512 MB / 4 kB pages, which means \( 2 ^{17} \) entries in the inverted page table.
+Since each entry of these tables has 4 bytes, the sizes of each tables
+are 8 MB (1.5\%) of memory, and 512 kB (0.1\% of memory), respectively.
 
 \section*{Aufgabe 5}
 
