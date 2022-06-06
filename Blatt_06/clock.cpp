@@ -21,13 +21,12 @@ int main() {
 	}
 	int c = stoi(cstr); // Number of frames
 
-	string refstr = "";
+	string refstr;
 	while (true)
 	{
 	cout << "Referenzfolge (default 70120304230321201701): ";
 	getline(cin, refstr);
-	stringstream s(refstr);
-	if (s >> n) break; // If number has been entered - Exit 
+	if (!refstr.empty()) break; // If number has been entered - Exit 
 	else
 		refstr = "70120304230321201701";
 		break;

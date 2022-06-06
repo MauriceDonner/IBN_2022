@@ -63,6 +63,7 @@ struct page {
 \end{lstlisting}
     \item A Ringbuffer, implemented by a simple \texttt{page}-Array
 
+\end{itemize}
 Output for Reference A:
 
 \begin{lstlisting}
@@ -90,7 +91,24 @@ Referenzfolge (default 70120304230321201701):
 1 -> [ 0 , 1 , 7 ]
 \end{lstlisting}
 
-\end{itemize}
+Output for Reference B:
+\begin{lstlisting}
+Anzahl der Seitenrahmen (default 3): 3
+Referenzfolge (default 70120304230321201701): 232152453252
+2 -> [(2), 10 , 10 ]
+3 -> [ 2 ,(3), 10 ]
+2 -> [ 2 , 3 , 10 ]
+1 -> [ 2 , 3 ,(1)]
+5 -> [ 2 ,(5), 1 ]
+2 -> [ 2 , 5 , 1 ]
+4 -> [ 2 , 5 ,(4)]
+5 -> [ 2 , 5 , 4 ]
+3 -> [ 2 , 5 ,(3)]
+2 -> [ 2 , 5 , 3 ]
+5 -> [ 2 , 5 , 3 ]
+2 -> [ 2 , 5 , 3 ]
+\end{lstlisting}
+
 
 \end{document}
 
