@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  6 JUN 2022 21:10
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2021.10.27)  6 JUN 2022 23:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,6 +765,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
+[1
+
+]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -799,9 +802,7 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[1
-
-] (./main.aux
+[2] (./main.aux
 LaTeX Info: Redefining \rmfamily on input line 2.
 LaTeX Info: Redefining \sffamily on input line 2.
 LaTeX Info: Redefining \ttfamily on input line 2.
@@ -809,10 +810,10 @@ LaTeX Info: Redefining \ttfamily on input line 2.
 Here is how much of TeX's memory you used:
  22022 strings out of 477220
  486345 string characters out of 5832721
- 1034498 words of memory out of 5000000
+ 1035498 words of memory out of 5000000
  41365 multiletter control sequences out of 15000+600000
  405329 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,11n,131p,394b,1103s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.xdv (1 page, 22744 bytes).
+Output written on main.xdv (2 pages, 44456 bytes).

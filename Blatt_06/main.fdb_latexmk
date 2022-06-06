@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1654542653 "main.xdv" "main.pdf" "main" 1654542653
-  "main.xdv" 1654542652 22744 4931724698871dd9e8e46924fc53ba0e "xelatex"
+["xdvipdfmx"] 1654550502 "main.xdv" "main.pdf" "main" 1654550502
+  "main.xdv" 1654550502 44456 ce6ee820e8f5d3cbfec9844d31dc9779 "xelatex"
   (generated)
   "main.pdf"
-["xelatex"] 1654542651 "main.tex" "main.xdv" "main" 1654542653
+["xelatex"] 1654550501 "main.tex" "main.xdv" "main" 1654550502
   "/etc/texmf/web2c/texmf.cnf" 1635312687 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -138,9 +138,9 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1635312784 4943007 12c5b5ba739d5639f5495f9e75a595b0 ""
-  "main.aux" 1654542652 291 f27c5cbc8b6efd5196481e77622176a5 "xelatex"
-  "main.tex" 1654542651 2743 ea7c49db1bff744e39a6991b79c4f446 ""
+  "main.aux" 1654550502 291 6d18bcf0682755fda84c3cdf1b28d807 "xelatex"
+  "main.tex" 1654550500 4003 b59ea96ae1f46d9e34cc2488af28ce01 ""
   (generated)
-  "main.log"
   "main.aux"
+  "main.log"
   "main.xdv"
