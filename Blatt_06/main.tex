@@ -1,0 +1,96 @@
+
+\documentclass{article}
+
+% Deactivate sectsty warning when loading sectsty {{{
+\usepackage[immediate]{silence}
+\WarningFilter[temp]{latex}{Command}
+\usepackage{sectsty}
+    \sectionfont{\normalfont\sffamily\bfseries\color{blue!40!black}}
+    \subsectionfont{\normalfont\sffamily\bfseries\color{blue!30!black}}
+\DeactivateWarningFilters[temp]
+\makeatletter % disable the runtime redefinitions
+\let\SS@makeulinesect\relax
+\let\SS@makeulinepartchap\relax
+\makeatother
+% }}}
+
+\usepackage[margin=4cm]{geometry}
+    \setlength\parindent{0pt}
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+\usepackage{fontspec}
+    \setsansfont{Linux Biolinum O}
+\usepackage{polyglossia}
+    \setmainlanguage{english}
+\usepackage{sectsty}
+    \sectionfont{\normalfont\sffamily\bfseries\color{blue!40!black}}
+    \subsectionfont{\normalfont\sffamily\bfseries\color{blue!30!black}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+    \lstset{language=Python,
+	basicstyle=\footnotesize\ttfamily,
+	breaklines=true,
+	framextopmargin=50pt,
+	frame=bottomline,
+	backgroundcolor=\color{white!86!black},
+	commentstyle=\color{blue},
+	keywordstyle=\color{red},
+	stringstyle=\color{orange!80!black}}
+\usepackage{tikz}
+
+\title{\textsf{\color{blue!40!black}6. Übung IBN}}
+\author{Maurice Donner \and Ise Glade}
+
+\begin{document}
+
+\section{Aufgabe 6}
+The Programm is written in \texttt{C++}. The clock algorithm
+is implemented the following way:\\
+\begin{itemize}
+    \item A \texttt{page} struct, that contains page number and an R-Bit
+\begin{lstlisting}
+struct page {
+    char pnumber;
+    bool R;
+}
+\end{lstlisting}
+    \item A Ringbuffer, implemented by a simple \texttt{page}-Array
+
+Output for Reference A:
+
+\begin{lstlisting}
+Anzahl der Seitenrahmen (default 3): 3
+Referenzfolge (default 70120304230321201701): 
+7 -> [(7), 10 , 10 ]
+0 -> [ 7 ,(0), 10 ]
+1 -> [ 7 , 0 ,(1)]
+2 -> [(2), 0 , 1 ]
+0 -> [ 2 , 0 , 1 ]
+3 -> [ 2 , 0 ,(3)]
+0 -> [ 2 , 0 , 3 ]
+4 -> [(4), 0 , 3 ]
+2 -> [ 4 , 0 ,(2)]
+3 -> [(3), 0 , 2 ]
+0 -> [ 3 , 0 , 2 ]
+3 -> [ 3 , 0 , 2 ]
+2 -> [ 3 , 0 , 2 ]
+1 -> [ 3 ,(1), 2 ]
+2 -> [ 3 , 1 , 2 ]
+0 -> [(0), 1 , 2 ]
+1 -> [ 0 , 1 , 2 ]
+7 -> [ 0 , 1 ,(7)]
+0 -> [ 0 , 1 , 7 ]
+1 -> [ 0 , 1 , 7 ]
+\end{lstlisting}
+
+\end{itemize}
+
+\end{document}
+
