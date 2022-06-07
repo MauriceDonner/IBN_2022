@@ -51,7 +51,7 @@
 \begin{document}
 
 \section{Aufgabe 6}
-The Programm is written in \texttt{C++}. The clock algorithm
+The Programm \texttt{clock.cpp} is written in \texttt{C++}. The clock algorithm
 is implemented the following way:\\
 \begin{itemize}
     \item A \texttt{page} struct, that contains page number and an R-Bit
@@ -67,8 +67,8 @@ struct page {
 Output for Reference A:
 
 \begin{lstlisting}
-Anzahl der Seitenrahmen (default 3): 3
-Referenzfolge (default 70120304230321201701): 
+Number of Frames (default 3): 3
+Reference Set (default 70120304230321201701): 
 7 -> [(7), 10 , 10 ]
 0 -> [ 7 ,(0), 10 ]
 1 -> [ 7 , 0 ,(1)]
@@ -93,8 +93,8 @@ Referenzfolge (default 70120304230321201701):
 
 Output for Reference B:
 \begin{lstlisting}
-Anzahl der Seitenrahmen (default 3): 3
-Referenzfolge (default 70120304230321201701): 232152453252
+Number of Frames (default 3): 3
+Reference Set (default 70120304230321201701): 232152453252
 2 -> [(2), 10 , 10 ]
 3 -> [ 2 ,(3), 10 ]
 2 -> [ 2 , 3 , 10 ]
@@ -117,8 +117,8 @@ program).
 
 Output for Reference A (Epoch every 3rd step):
 \begin{lstlisting}
-Anzahl der Seitenrahmen (default 3): 
-Referenzfolge (default 70120304230321201701): 
+Number of Frames (default 3): 
+Reference Set (default 70120304230321201701): 
 7 -> [ 10 , 10 ,(7)]
 0 -> [ 10 ,(0), 7 ]
 1 -> [(1), 0 , 7 ]
@@ -141,10 +141,10 @@ Referenzfolge (default 70120304230321201701):
 1 -> [ 7 , 1 , 0 ]
 \end{lstlisting}
 
-Output for Reference B (Epoch every 3rd step:
+Output for Reference B (Epoch every 3rd step):
 \begin{lstlisting}
-Anzahl der Seitenrahmen (default 3): 
-Referenzfolge (default 70120304230321201701): 232152453252
+Number of Frames (default 3): 
+Reference Set (default 70120304230321201701): 232152453252
 2 -> [ 10 , 10 ,(2)]
 3 -> [ 10 ,(3), 2 ]
 2 -> [ 10 , 3 , 2 ]
@@ -158,6 +158,88 @@ Referenzfolge (default 70120304230321201701): 232152453252
 5 -> [ 5 , 4 , 2 ]
 2 -> [ 5 , 4 , 2 ]
 \end{lstlisting}
+
+\section*{Aufgabe 7}
+In this approach, a ringbuffer that stores \( \Delta \) pagenumbers was used.
+That way, only the last \( \Delta \) pagenumbers are stored. If a new page is
+accessed, the oldest entry in the buffer gets deleted. Pseudocode looks like this:
+\begin{lstlisting}
+int main(){
+
+    int WS;
+
+    // Enter how many memory accesses should be used for the working set
+    read_input(pWS);
+
+    // Initialize buffer
+    int ringbuffer[WS];
+
+    // Read line by line into the buffer. Once its full, overwrite the oldest
+    // entry.
+    int counter = 0;
+    while (not done) {
+	ringbuffer[counter] = line;
+	counter++;
+	if ( counter == WS ) { counter = 0; }
+    }
+
+    // Print to console
+    for (int i = 0; i < sizeof(ringbuffer); i++) {
+	if (ringbuffer[i] has been printed) continue;
+	else print(ringbuffer[i]);
+
+    return 0;
+}
+
+\end{lstlisting}
+
+An implementation of this can be found in the file \texttt{getWorkingSet.cpp}
+This program reads the working set from an external file (\texttt{ReferenceA.txt}) and
+takes the working set size from stdin. It prints out the pages
+the working set contains. With \( \Delta = 5 \), the working set of each
+reference string has 3 unique pages. Increasing \( \Delta \) to 6 adds
+another entry to the set:\\[.5cm]
+
+\begin{minipage}{.49\textwidth}
+\subsection*{A}
+\begin{lstlisting}
+Enter size of working set: 
+5
+Working set:
+0
+1
+7
+\end{lstlisting}
+\begin{lstlisting}
+Enter size of working set: 
+6
+Working set:
+0
+1
+2
+7
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.49\textwidth}
+\subsection*{B}
+\begin{lstlisting}
+Enter size of working set: 
+5
+Working set:
+5
+2
+3
+\end{lstlisting}
+\begin{lstlisting}
+Enter size of working set: 
+6
+Working set:
+4
+5
+3
+2
+\end{lstlisting}
+\end{minipage}
 
 \end{document}
 

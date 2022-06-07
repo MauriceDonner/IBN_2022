@@ -11,7 +11,7 @@ int main() {
 	string cstr;
 	while (true)
 	{
-	cout << "Anzahl der Seitenrahmen (default 3): ";
+	cout << "Number of Frames (default 3): ";
 	getline(cin, cstr);
 	stringstream s(cstr);
 	if (s >> n) break; // If number has been entered - Exit 
@@ -24,7 +24,7 @@ int main() {
 	string refstr;
 	while (true)
 	{
-	cout << "Referenzfolge (default 70120304230321201701): ";
+	cout << "Reference Set (default 70120304230321201701): ";
 	getline(cin, refstr);
 	if (!refstr.empty()) break; // If number has been entered - Exit 
 	else
